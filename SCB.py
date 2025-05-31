@@ -55,6 +55,14 @@ while opção != 7:
                 print('Valor depositado com sucesso!')
                 print('-'*45)
         deposito_conta()
+    elif opção == 3:
+        inspecionar_código_conta = int(input('Qual o número da conta?:'))
+        if inspecionar_código_conta in lista_código:
+            index = lista_código.index(inspecionar_código_conta)
+            print('Olá, {}.'.format(lista_nome[index]))
+            valor = float(input('Qual o valor do saque?: R$'))
+            lista_saldo_conta[index] -= valor
+            print('Valor sacado com sucesso!')
     print('-=-=-=-=-=-=-=- BANCO -=-=-=-=-=-=-=-')
     print('''    [ 1 ] ⭢ CRIAR CONTA
     [ 2 ] ⭢ DEPOSITAR
