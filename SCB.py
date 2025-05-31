@@ -1,5 +1,7 @@
 import random
-
+lista_nome = []
+lista_cpf = []
+lista_código = []
 print('-=-=-=-=-=-=-=- BANCO -=-=-=-=-=-=-=-')
 print('''[ 1 ] | CRIAR CONTA
 [ 2 ] | DEPOSITAR
@@ -14,6 +16,7 @@ while opção != 7:
     if opção == 1:
         print('-'*50)
         nome = str(input('Digite aqui seu nome completo: ')).strip()
+        lista_nome.append(nome)
         def pegar_cpf():
             while True:
                 cpf = input('Digite o seu CPF: ').strip()
@@ -26,7 +29,9 @@ while opção != 7:
             return f'{cpf_usuario[0:3]}.{cpf_usuario[3:6]}.{cpf_usuario[6:9]}-{cpf_usuario[9:11]}'
         cpf_usuario = pegar_cpf()
         cpf_formatado = formatar_cpf(cpf_usuario)
+        lista_cpf.append(cpf_formatado)
         gerador_numero_conta = random.randint(1000, 9999)
+        lista_código.append(gerador_numero_conta)
         print('='*45)
         print('Nome do usuário: {}'.format(nome))
         print('CPF: {}'.format(cpf_formatado))
