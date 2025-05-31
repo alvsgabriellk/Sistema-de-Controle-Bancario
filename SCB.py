@@ -41,7 +41,14 @@ while opção != 7:
         lista_cpf.append(cpf_formatado)
         lista_código.append(gerador_numero_conta)
         lista_saldo_conta.append(saldo_conta)
-
+    elif opção == 2:
+        inspecionar_código_conta = int(input('Informe o número da conta:'))
+        if inspecionar_código_conta in lista_código:
+            index = lista_código.index(inspecionar_código_conta)
+            print('Olá, {}!'.format(lista_nome[index]))
+            valor = float(input('Qual o valor do deposito?: R$'))
+            lista_saldo_conta.append(valor[index])
+            print('Valor depositado com sucesso!')
     print('-=-=-=-=-=-=-=- BANCO -=-=-=-=-=-=-=-')
     print('''    [ 1 ] | CRIAR CONTA
     [ 2 ] | DEPOSITAR
