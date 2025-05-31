@@ -4,15 +4,15 @@ lista_cpf = []
 lista_código = []
 lista_saldo_conta = []
 print('-=-=-=-=-=-=-=- BANCO -=-=-=-=-=-=-=-')
-print('''[ 1 ] | CRIAR CONTA
-[ 2 ] | DEPOSITAR
-[ 3 ] | SACAR
-[ 4 ] | TRANSFERIR
-[ 5 ] | CONSULTAR SALDO
-[ 6 ] | LISTAR TODAS AS CONTAS
-[ 7 ] | ENCERRAR CONTA''')
+print('''[ 1 ] ⭢ CRIAR CONTA
+[ 2 ] ⭢ DEPOSITAR
+[ 3 ] ⭢ SACAR
+[ 4 ] ⭢ TRANSFERIR
+[ 5 ] ⭢ CONSULTAR SALDO
+[ 6 ] ⭢ LISTAR TODAS AS CONTAS
+[ 7 ] ⭢ ENCERRAR CONTA''')
 print('-=-=-=-=-=-=-=- BANCO -=-=-=-=-=-=-=-')
-opção = int(input('-----> Qual a sua opção? '))
+opção = int(input('➥ Qual a sua opção? '))
 while opção != 7:
     if opção == 1:
         print('-'*50)
@@ -21,7 +21,7 @@ while opção != 7:
             while True:
                 cpf = input('Digite o seu CPF: ').strip()
                 if len(cpf) == 11 and cpf.isdigit():
-                    print('--> CPF Aceito! ')
+                    print('➥ CPF Aceito! ')
                     return cpf
                 else:
                     print('--> CPF inválido!')
@@ -35,30 +35,32 @@ while opção != 7:
         print('Nome do usuário: {}'.format(nome))
         print('CPF: {}'.format(cpf_formatado))
         print('Código da conta: {}'.format(gerador_numero_conta))
-        print('Seu saldo: {:.2f}'.format(saldo_conta))
+        print('Seu saldo: R${:.2f}'.format(saldo_conta))
         print('-'*50)
         lista_nome.append(nome)
         lista_cpf.append(cpf_formatado)
         lista_código.append(gerador_numero_conta)
         lista_saldo_conta.append(saldo_conta)
     elif opção == 2:
-        inspecionar_código_conta = int(input('Informe o número da conta:'))
+        print('-'*45)
+        inspecionar_código_conta = int(input('➥ Informe o número da conta:'))
         if inspecionar_código_conta in lista_código:
             index = lista_código.index(inspecionar_código_conta)
             print('Olá, {}!'.format(lista_nome[index]))
             valor = float(input('Qual o valor do deposito?: R$'))
             lista_saldo_conta[index] += valor
             print('Valor depositado com sucesso!')
+            print('-'*45)
     print('-=-=-=-=-=-=-=- BANCO -=-=-=-=-=-=-=-')
-    print('''    [ 1 ] | CRIAR CONTA
-    [ 2 ] | DEPOSITAR
-    [ 3 ] | SACAR
-    [ 4 ] | TRANSFERIR
-    [ 5 ] | CONSULTAR SALDO
-    [ 6 ] | LISTAR TODAS AS CONTAS
-    [ 7 ] | ENCERRAR CONTA''')
+    print('''    [ 1 ] ⭢ CRIAR CONTA
+    [ 2 ] ⭢ DEPOSITAR
+    [ 3 ] ⭢ SACAR
+    [ 4 ] ⭢ TRANSFERIR
+    [ 5 ] ⭢ CONSULTAR SALDO
+    [ 6 ] ⭢ LISTAR TODAS AS CONTAS
+    [ 7 ] ⭢ ENCERRAR CONTA''')
     print('-=-=-=-=-=-=-=- BANCO -=-=-=-=-=-=-=-')
-    opção = int(input('-----> Qual a sua opção? '))
+    opção = int(input('➥ Qual a sua opção? '))
 
 
 
