@@ -88,6 +88,8 @@ while opção != 7:
                 print('⚠️ Conta inexistente.')
             print('-'*45)
         saque_conta()
+    elif opção == 4:
+        print('Fazendo..')
     print('-=-=-=-=-=-=-=- BANCO -=-=-=-=-=-=-=-')
     print('''    [ 1 ] ⭢ CRIAR CONTA
     [ 2 ] ⭢ DEPOSITAR
