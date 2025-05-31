@@ -65,8 +65,11 @@ while opção != 7:
                 index = lista_código.index(inspecionar_código_conta)
                 print('Olá, {}!'.format(lista_nome[index]))
                 valor = float(input('Qual o valor do saque?: R$'))
-                lista_saldo_conta[index] -= valor
-                print('Valor sacado com sucesso!')
+                if valor > lista_saldo_conta[index]:
+                    print('⚠️ Valor indísponivel')
+                else:
+                    lista_saldo_conta[index] -= valor
+                    print('Valor sacado com sucesso!')
             else:
                 print('⚠️ Conta inexistente.')
             print('-'*45)
