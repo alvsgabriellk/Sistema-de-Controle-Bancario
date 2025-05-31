@@ -1,4 +1,6 @@
 import random
+from time import sleep
+
 lista_nome = []
 lista_cpf = []
 lista_código = []
@@ -25,14 +27,18 @@ while opção != 7:
                         print('➥ CPF Aceito! ')
                         return cpf
                     else:
-                        print('--> CPF inválido!')
+                        print('⚠️ CPF inválido!')
             def formatar_cpf(cpf_usuario):
                 return f'{cpf_usuario[0:3]}.{cpf_usuario[3:6]}.{cpf_usuario[6:9]}-{cpf_usuario[9:11]}'
             cpf_usuario = pegar_cpf()
             cpf_formatado = formatar_cpf(cpf_usuario)
             gerador_numero_conta = random.randint(1000, 9999)
             saldo_conta = float(0)
+            print('Criando conta...')
+            sleep(2)
             print('='*45)
+            print('➥ Conta criada!')
+            sleep(1.2)
             print('Nome do usuário: {}'.format(nome))
             print('CPF: {}'.format(cpf_formatado))
             print('Código da conta: {}'.format(gerador_numero_conta))
@@ -47,11 +53,15 @@ while opção != 7:
         def deposito_conta():
             print('-'*45)
             inspecionar_código_conta = int(input('➥ Informe o número da conta:'))
+            print('Procurando...')
+            sleep(1.5)
             if inspecionar_código_conta in lista_código:
                 index = lista_código.index(inspecionar_código_conta)
                 print('Olá, {}!'.format(lista_nome[index]))
                 valor = float(input('Qual o valor do deposito?: R$'))
                 lista_saldo_conta[index] += valor
+                print('Depositando...')
+                sleep(2)
                 print('Valor depositado com sucesso!')
             else:
                 print('⚠️ Conta inexistente.')
@@ -60,7 +70,9 @@ while opção != 7:
     elif opção == 3:
         def saque_conta():
             print('-'*45)
-            inspecionar_código_conta = int(input('➥ Qual o número da conta?:'))
+            inspecionar_código_conta = int(input('➥ Informe o número da conta:'))
+            print('Procurando...')
+            sleep(1.5)
             if inspecionar_código_conta in lista_código:
                 index = lista_código.index(inspecionar_código_conta)
                 print('Olá, {}!'.format(lista_nome[index]))
@@ -69,6 +81,8 @@ while opção != 7:
                     print('⚠️ Valor indísponivel')
                 else:
                     lista_saldo_conta[index] -= valor
+                    print('Sacando dinheiro...')
+                    sleep(2)
                     print('Valor sacado com sucesso!')
             else:
                 print('⚠️ Conta inexistente.')
