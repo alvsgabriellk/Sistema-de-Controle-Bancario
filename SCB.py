@@ -90,11 +90,15 @@ while opção != 7:
             print('-'*45)
         saque_conta()
     elif opção == 4:
-        inspecinar_codigo_conta_atual = int(input('Informe o número da conta que será usada:'))
+        inspecinar_codigo_conta_atual = int(input('Informe o número da conta que será usada: '))
+        print('Procurando...')
+        sleep(2)
         if inspecinar_codigo_conta_atual in lista_código:
             index_atual = lista_código.index(inspecinar_codigo_conta_atual)
             print('Olá, {}!'.format(lista_nome[index_atual]))
-            inspecinar_codigo_conta_remetente = int(input('Informe o número da conta remetente:'))
+            inspecinar_codigo_conta_remetente = int(input('Informe o número da conta remetente: '))
+            print('Procurando...')
+            sleep(2)
             if inspecinar_codigo_conta_remetente in lista_código:
                 index_remetente = lista_código.index(inspecinar_codigo_conta_remetente)
                 print('A conta pra quem você deseja enviar está no nome de "{}".'.format(lista_nome[index_remetente]))
@@ -102,7 +106,7 @@ while opção != 7:
                 if valor_transferencia_conta > lista_saldo_conta[index_atual]:
                     print('Valor indisponivel.')
                 else:
-                    confirmação_transferencia = str(input('Deseja enviar a transferencia de dinheiro? s/n:')).upper().strip()[0:3]
+                    confirmação_transferencia = str(input('Deseja enviar a transferencia de dinheiro? s/n: ')).upper().strip()[0:3]
                     if confirmação_transferencia == 'S' or confirmação_transferencia == 'SIM':
                         lista_saldo_conta[index_remetente] += valor_transferencia_conta
                         lista_saldo_conta[index_atual] -= valor_transferencia_conta
