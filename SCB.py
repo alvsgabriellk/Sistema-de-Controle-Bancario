@@ -132,6 +132,8 @@ while opção != 7:
                 sleep(1.5)
             print('-'*60)
         transferencia_conta()
+    elif opção == 5:
+        print('Fazendo...')
     print('-=-=-=-=-=-=-=- BANCO -=-=-=-=-=-=-=-')
     print('''    [ 1 ] ⭢ CRIAR CONTA
     [ 2 ] ⭢ DEPOSITAR
