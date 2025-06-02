@@ -1,4 +1,5 @@
 import random
+from operator import index
 from time import sleep
 
 lista_nome = []
@@ -89,7 +90,37 @@ while opção != 7:
             print('-'*45)
         saque_conta()
     elif opção == 4:
-        print('Fazendo..')
+        inspecinar_codigo_conta_atual = int(input('Informe o número da conta que será usada:'))
+        if inspecinar_codigo_conta_atual in lista_código:
+            index_atual = lista_código.index(inspecinar_codigo_conta_atual)
+            print('Olá, {}!'.format(lista_nome[index_atual]))
+            inspecinar_codigo_conta_remetente = int(input('Informe o número da conta remetente:'))
+            if inspecinar_codigo_conta_remetente in lista_código:
+                index_remetente = lista_código.index(inspecinar_codigo_conta_remetente)
+                print('A conta pra quem você deseja enviar está no nome de "{}".'.format(lista_nome[index_remetente]))
+                valor_transferencia_conta = float(input('Qual o valor da transferencia? R$'))
+                if valor_transferencia_conta > lista_saldo_conta[index_atual]:
+                    print('Valor indisponivel.')
+                else:
+                    confirmação_transferencia = str(input('Deseja enviar a transferencia de dinheiro? s/n:')).upper().strip()[0:3]
+                    if confirmação_transferencia == 'S' or confirmação_transferencia == 'SIM':
+                        lista_saldo_conta[index_remetente] += valor_transferencia_conta
+                        lista_saldo_conta[index_atual] -= valor_transferencia_conta
+                        print('Enviando a transferencia pro destinatário...')
+                        sleep(2)
+                        print('Transferencia realizada!')
+                    elif confirmação_transferencia == 'N' or confirmação_transferencia == 'NAO':
+                        print('Transferencia recusada.')
+                        print('Encerrando programa...')
+                        sleep(1.5)
+            elif inspecinar_codigo_conta_remetente not in lista_código:
+                print('Conta destinatária não encontrada!')
+                print('Encerrando programa...')
+                sleep(1.5)
+        elif inspecinar_codigo_conta_atual not in lista_código:
+            print('Conta atual não encontrada!')
+            print('Encerrando programa...')
+            sleep(1.5)
     print('-=-=-=-=-=-=-=- BANCO -=-=-=-=-=-=-=-')
     print('''    [ 1 ] ⭢ CRIAR CONTA
     [ 2 ] ⭢ DEPOSITAR
