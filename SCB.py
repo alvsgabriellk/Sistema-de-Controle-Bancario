@@ -90,6 +90,7 @@ while opção != 7:
             print('-'*45)
         saque_conta()
     elif opção == 4:
+        print('-'*60)
         inspecinar_codigo_conta_atual = int(input('➥ Informe o número da conta que será usada: '))
         print('Procurando...')
         sleep(2)
@@ -102,6 +103,7 @@ while opção != 7:
             if inspecinar_codigo_conta_remetente in lista_código:
                 index_remetente = lista_código.index(inspecinar_codigo_conta_remetente)
                 print('A conta pra quem você deseja enviar está no nome de "{}".'.format(lista_nome[index_remetente]))
+                print('='*50)
                 valor_transferencia_conta = float(input('➥ Qual o valor da transferencia? R$'))
                 if valor_transferencia_conta > lista_saldo_conta[index_atual]:
                     print('⚠️ Valor indisponivel.')
@@ -127,6 +129,7 @@ while opção != 7:
             print('⚠️ Conta atual não encontrada!')
             print('Encerrando programa...')
             sleep(1.5)
+        print('-'*60)
     print('-=-=-=-=-=-=-=- BANCO -=-=-=-=-=-=-=-')
     print('''    [ 1 ] ⭢ CRIAR CONTA
     [ 2 ] ⭢ DEPOSITAR
