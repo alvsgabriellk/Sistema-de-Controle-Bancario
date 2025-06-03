@@ -134,10 +134,12 @@ while opção != 7:
     elif opção == 5:
         print('-'*45)
         inspecionar_código_conta = int(input('➥ Digite aqui o número da conta:'))
+        print('Procurando...')
+        sleep(2)
         if inspecionar_código_conta in lista_código:
             index = lista_código.index(inspecionar_código_conta)
             print('Olá, {}!'.format(lista_nome[index]))
-            print('O saldo no seu banco é: R${:.2f}'.format(lista_saldo_conta[index]))
+            print('O saldo do seu banco é: R${:.2f}'.format(lista_saldo_conta[index]))
         elif inspecionar_código_conta not in lista_código:
             print('⚠️ Conta inexistente!')
         print('-'*45)
