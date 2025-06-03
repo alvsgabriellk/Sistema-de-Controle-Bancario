@@ -132,13 +132,15 @@ while opção != 7:
             print('-'*60)
         transferencia_conta()
     elif opção == 5:
-        inspecionar_código_conta = int(input('Digite aqui o número da conta:'))
+        print('-'*45)
+        inspecionar_código_conta = int(input('➥ Digite aqui o número da conta:'))
         if inspecionar_código_conta in lista_código:
             index = lista_código.index(inspecionar_código_conta)
             print('Olá, {}!'.format(lista_nome[index]))
             print('O saldo no seu banco é: R${:.2f}'.format(lista_saldo_conta[index]))
         elif inspecionar_código_conta not in lista_código:
             print('⚠️ Conta inexistente!')
+        print('-'*45)
     print('-=-=-=-=-=-=-=- BANCO -=-=-=-=-=-=-=-')
     print('''    [ 1 ] ⭢ CRIAR CONTA
     [ 2 ] ⭢ DEPOSITAR
