@@ -146,11 +146,20 @@ while opção != 7:
             print('-'*45)
         analise_saldo_conta()
     elif opção == 6:
-        print('Analisando contas...')
-        for pessoas in range(len(lista_nome)):
-            print('Nome: {}.'.format(lista_nome[pessoas]))
-            print('CPF: {}'.format(lista_cpf[pessoas]))
-            print('Número: {}'.format(lista_código[pessoas]))
+        print('-'*45)
+        print('➥ Analisando contas...')
+        sleep(2)
+        if lista_código:
+            for pessoas, (nome, cpf, codigo) in enumerate(zip(lista_nome, lista_cpf, lista_código)):
+                if pessoas >= 1:
+                    print('='*40)
+                print('➥ BANCO')
+                print('Nome: {}'.format(nome))
+                print('CPF: {}'.format(cpf))
+                print('Número: {}'.format(codigo))
+        else:
+            print('Nenhuma conta encontrada!')
+        print('-'*45)
     print('-=-=-=-=-=-=-=- BANCO -=-=-=-=-=-=-=-')
     print('''    [ 1 ] ⭢ CRIAR CONTA
     [ 2 ] ⭢ DEPOSITAR
