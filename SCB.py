@@ -1,7 +1,6 @@
 import random
 from operator import index
 from time import sleep
-
 lista_nome = []
 lista_cpf = []
 lista_código = []
@@ -123,17 +122,23 @@ while opção != 7:
                             print('Encerrando programa...')
                             sleep(1.5)
                 elif inspecinar_codigo_conta_remetente not in lista_código:
-                    print('⚠️ Conta destinatária não encontrada!')
+                    print('⚠️ Conta destinatária inexistente!')
                     print('Encerrando programa...')
                     sleep(1.5)
             elif inspecinar_codigo_conta_atual not in lista_código:
-                print('⚠️ Conta atual não encontrada!')
+                print('⚠️ Conta remetente inexistente!')
                 print('Encerrando programa...')
                 sleep(1.5)
             print('-'*60)
         transferencia_conta()
     elif opção == 5:
-        print('Fazendo...')
+        inspecionar_código_conta = int(input('Digite aqui o número da conta:'))
+        if inspecionar_código_conta in lista_código:
+            index = lista_código.index(inspecionar_código_conta)
+            print('Olá, {}!'.format(lista_nome[index]))
+            print('O saldo no seu banco é: R${:.2f}'.format(lista_saldo_conta[index]))
+        elif inspecionar_código_conta not in lista_código:
+            print('⚠️ Conta inexistente!')
     print('-=-=-=-=-=-=-=- BANCO -=-=-=-=-=-=-=-')
     print('''    [ 1 ] ⭢ CRIAR CONTA
     [ 2 ] ⭢ DEPOSITAR
