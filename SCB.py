@@ -159,9 +159,11 @@ while opção != 7:
                     print('CPF: {}'.format(cpf))
                     print('Número: {}'.format(codigo))
             else:
-                print('Nenhuma conta encontrada!')
+                print('⚠️ Nenhuma conta encontrada!')
             print('-'*45)
         analise_contas()
+    elif opção > 7 or opção < 1:
+        print('⚠️ Opção inválida!')
     print('-=-=-=-=-=-=-=- BANCO -=-=-=-=-=-=-=-')
     print('''    [ 1 ] ⭢ CRIAR CONTA
     [ 2 ] ⭢ DEPOSITAR
@@ -172,6 +174,3 @@ while opção != 7:
     [ 7 ] ⭢ ENCERRAR CONTA''')
     print('-=-=-=-=-=-=-=- BANCO -=-=-=-=-=-=-=-')
     opção = int(input('➥ Qual a sua opção? '))
-
-
-
